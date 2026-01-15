@@ -5,35 +5,45 @@
 // 3. Create a subclass `Dog` that overrides the `speak()` method to return "The dog barks", but still use the getter in the subclass.
 // 4. Create another subclass `Cat` that overrides the `speak()` method to return "The cat meows", but still use the getter in the subclass.
 
-
 class Animal {
   #type;
 
   constructor(type) {
-      this.#type = type;
+    this.#type = type;
   }
 
   getType() {
-      return this.#type;
+    return this.#type;
   }
 
   speak() {
-      return `The ${this.getType()} makes a sound`;
+    return `The ${this.getType()} makes a sound`;
   }
 }
 
 class Dog extends Animal {
-  // YOUR CODE HERE
+  constructor() {
+    super("dog");
+  }
+
+  speak() {
+    return `The ${this.getType()} barks`;
+  }
 }
 
 class Cat extends Animal {
-  // YOUR CODE HERE
-}
+  constructor() {
+    super("cat");
+  }
 
+  speak() {
+    return `The ${this.getType()} meows`;
+  }
+}
 
 // Test Code / Driver Code
 const dog = new Dog();
 const cat = new Cat();
 
-console.log(dog.speak());  // Expected Output: "The dog barks"
-console.log(cat.speak());  // Expected Output: "The cat meows"
+console.log(dog.speak()); // Expected Output: "The dog barks"
+console.log(cat.speak()); // Expected Output: "The cat meows"

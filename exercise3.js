@@ -6,16 +6,33 @@
 // 4. In the `Manager` class, use `super` to call the parent constructor, and override the `introduce()` method to include the department in the output.
 //    The output should be: "Hi, I'm [name], a [position] in the [department] department."
 
-
 class Employee {
-  // YOUR CODE HERE
+  #name;
+  #position;
+
+  constructor(name, position) {
+    this.#name = name;
+    this.#position = position;
+  }
+
+  introduce() {
+    return `Hi, I'm ${this.#name}, a ${this.#position}`;
+  }
 }
 
 class Manager extends Employee {
-  // YOUR CODE HERE
-}
+  #department;
 
+  constructor(name, position, department) {
+    super(name, position);
+    this.#department = department;
+  }
+
+  introduce() {
+    return `${super.introduce()} in the ${this.#department} department`;
+  }
+}
 
 // Test Code / Driver Code
 const manager = new Manager("Alice", "Manager", "Sales");
-console.log(manager.introduce());  // Expected Output: "Hi, I'm Alice, a Manager in the Sales department"
+console.log(manager.introduce()); // Expected Output: "Hi, I'm Alice, a Manager in the Sales department"
